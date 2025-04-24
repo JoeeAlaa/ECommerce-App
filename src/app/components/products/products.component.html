@@ -1,0 +1,41 @@
+
+<!-- products -->
+<section>
+    <input type="text" placeholder="Search By Name..." class="form-control w-50 mx-auto my-4" [(ngModel)]="text">
+    <div class="container">
+        <div class="row g-3">
+            @for (product of productList() | search : text ; track product.id) {
+                <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4">
+                    <div class="product p-2 cursor-pointer position-relative">
+                        @if (!wishlistProduct().includes(product.id)) {
+                            <i (click)="addToWishlist(product.id)" class="far fa-heart cursor-pointer fa-2xl my-3 d-flex justify-content-end align-items-center"></i>
+                        }
+                        @if(wishlistProduct().includes(product.id)) {
+                            <i (click)="removeItemFromWishlist(product.id)" class="fa-solid fa-heart text-main cursor-pointer fa-2xl my-3 d-flex justify-content-end align-items-center"></i>
+                        }
+    
+                        <div [routerLink]="['/productDetails',product.id]" routerLinkActive="router-link-active" >
+                            <img [src]="product.imageCover" class="w-100" [alt]="product.title">
+                            <h3 class="small text-main">{{product.category.name}}</h3>
+                            <h4 class="h6">{{product.title | termtext : 2 }}...</h4>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>{{product.price}} EGP</span>
+                                <div>
+                                    @for (num of [1,2,3,4,5].slice(0 , product.ratingsAverage); track $index) {
+                                        <span><i class="fas fa-star rating-color"></i></span>
+                                    }
+                                    @if (product.ratingsAverage % 1 !==0) {
+                                        <i class="fa-solid fa-star-half-stroke rating-color"></i>
+                                    }
+                                    <span class="text-muted">{{product.ratingsAverage}}</span>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <button class="btn-main w-100" (click)="addToCart(product.id)">Add to Cart</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

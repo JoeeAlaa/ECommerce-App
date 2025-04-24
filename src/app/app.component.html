@@ -1,0 +1,22 @@
+@if (this._NetworkService.isOnline()) {
+
+  <router-outlet></router-outlet>
+  
+  <ngx-spinner
+  color="#fff"
+    bdColor="rgba(100, 100, 100, 0.7)"
+    template="<img width='350px' src='./assets/images/freshcart-logo.svg'/>"
+  >
+  <p class="text-white">Loading...</p>
+  </ngx-spinner>
+}
+@else {
+
+  <div class="d-flex flex-column vh-100 justify-content-center align-items-center">
+    <div class="w-50 text-center">
+      <img src="./assets/images/offline.jpg" class="w-100" alt="">
+      <h1>You are offline!</h1>
+      <p>Please check your internet connection</p>
+    </div>
+  </div>
+}

@@ -1,0 +1,42 @@
+@if (datailsProduct) {
+
+    <section>
+        <h1 class="text-center text-main my-2">Details Product</h1>
+    
+        <div class="row align-items-center">
+            <div class="col-md-3">
+                <div>
+                    <owl-carousel-o [options]="customOptionsDetails">
+                        @for (img of datailsProduct.images; track $index) {
+                            <ng-template carouselSlide >
+                                <img [src]="img" class="w-100 product" [alt]="">
+                            </ng-template>
+                        }
+                    
+                    </owl-carousel-o>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div>
+                    <h2>{{datailsProduct.title}}</h2>
+                    <p class="text-muted">{{datailsProduct.description}}</p>
+                    <h3 class="h6 text-main">{{datailsProduct.category.name}}</h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>{{datailsProduct.price}} EGP</span>
+                        <div>
+                            @for (num of [1,2,3,4,5].slice(0 , datailsProduct.ratingsAverage); track $index) {
+                                <span><i class="fas fa-star rating-color"></i></span>
+                            }
+                            @if (datailsProduct.ratingsAverage % 1 !==0) {
+                                <i class="fa-solid fa-star-half-stroke rating-color"></i>
+                            }
+                            <span class="text-muted">{{datailsProduct.ratingsAverage}}</span>
+                        </div>
+                    </div>
+    
+                    <button (click)="addToCart(datailsProduct.id)" class="btn-main w-100 mt-2">+Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+}

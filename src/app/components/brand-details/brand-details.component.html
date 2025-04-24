@@ -1,0 +1,20 @@
+@if (brandDetails()) {
+
+    <section class="my-2">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-md-4">
+                    <div class="border border-4">
+                        <img [src]="brandDetails()?.image" class="w-100" [alt]="brandDetails()?.name">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="d-flex justify-content-center align-items-center gap-5">
+                        <h1 class="text-main fw-bold">Name: <span class="text-bg-dark rounded">{{brandDetails()?.name}}</span></h1>
+                        <h1 class="text-main fw-bold">Slug: <span class="text-bg-dark rounded">{{brandDetails()?.slug}}</span></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}

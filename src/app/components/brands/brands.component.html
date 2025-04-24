@@ -1,0 +1,15 @@
+<section class="my-5">
+    <input type="text" placeholder="Search By Name..." class="form-control w-50 mx-auto my-4" [(ngModel)]="text">
+    <div class="container">
+        <div class="row g-4">
+            @for (brand of brandsList().data | search : text ; track brand._id) {
+                <div class="col-xxl-3 col-xl-4 col-lg-4 col-md-4">
+                    <div [routerLink]="['/brandDetails',brand._id]" class="product p-2 cursor-pointer">
+                        <img [src]="brand.image" class="w-100" [alt]="brand.name">
+                        <h1 class="h6 text-main fw-bold text-center mt-2">{{brand.name}}</h1>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

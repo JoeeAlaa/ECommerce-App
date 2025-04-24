@@ -1,0 +1,41 @@
+<section class=" w-50 mx-auto">
+    <h1 class="h2 text-main">Account Details:</h1>
+    <div class="bg-main-light shadow p-2 my-2 rounded-4">
+
+        <form [formGroup]="detailsForm">
+    
+            <div class="my-2">
+                <label for="name" class="fw-bold">Full Name:</label>
+                <div class="input-group position-relative">
+                    <input readonly id="name" type="text" class="form-control ps-4" formControlName="name">
+                    <span class="position-absolute top-50 start-0 translate-middle-y ps-2">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="my-2">
+                <label for="role" class="fw-bold">Role:</label>
+                <div class="input-group position-relative">
+                    <input readonly id="role" type="text" class="form-control ps-4" formControlName="role">
+                    <span class="position-absolute top-50 start-0 translate-middle-y ps-2">
+                        <i class="fa-solid fa-user"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="my-2">
+                <label for="email" class="fw-bold">Email Address:</label>
+                <div class="input-group position-relative">
+                    <input   id="email" type="text" style="caret-color: transparent;" class="form-control ps-4" formControlName="email">
+                    <span class="position-absolute top-50 start-0 translate-middle-y ps-2">
+                        <i style="z-index: 10; pointer-events: none;" class="fa-solid fa-envelope"></i>                   
+                    </span>
+                </div>            
+            </div>
+    
+        </form>
+    </div>
+    <div class="d-flex justify-content-center align-items-center">
+
+        <button routerLink="/changePassword" class="btn btn-main mt-2">Change Password</button>
+    </div>
+</section>
