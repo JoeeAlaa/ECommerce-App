@@ -1,5 +1,15 @@
 {
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/" }
+    "version": 2,
+    "builds": [
+      {
+        "src": "dist/ECommerce/server/main.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "dist/ECommerce/server/main.js"
+      }
     ]
-}
+  }
